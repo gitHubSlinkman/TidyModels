@@ -57,4 +57,40 @@ An early method for evaluating such issues were probe-level models, or PLM’s (
 
 ![](D:/R-Projects/TidyModels/images/f01.1a.PNG)
   
-![](D:/R-Projects/TidyModels/images/f01.1b.PNG)
+![](D:/R-Projects/TidyModels/images/f01.1b.PNG)  
+
+Another example of a descriptive model is the locally estimated scatterplot smoothing model, more commonly known as LOESS (Cleveland 1979). Here, a smooth and flexible regression model is fit to a data set, usually with a single independent variable, and the fitted regression line is used to elucidate some trend in the data. These types of smoothers are used to discover potential ways to represent a variable in a model. This is demonstrated in Figure 1.1(b) where a nonlinear trend is illuminated by the flexible smoother. From this plot, it is clear that there is a highly nonlinear relationship between the sale price of a house and its latitude.  
+
+## Inferential models  
+
+The goal of an inferential model is to produce a decision for a research question or to test a specific hypothesis. The goal is to make some statement of truth regarding a predefined conjecture or idea. In many (but not all) cases, a qualitative statement is produced (e.g., that a difference was “statistically significant”).
+
+For example, in a clinical trial, the goal might be to provide confirmation that a new therapy does a better job in prolonging life than an alternative, like an existing therapy or no treatment. If the clinical endpoint was related to survival of a patient, the null hypothesis might be that the two therapeutic groups have equal median survival times with the alternative hypothesis being that the new therapy has higher median survival. If this trial were evaluated using the traditional null hypothesis significance testing, a p-value would be produced using some pre-defined methodology based on a set of assumptions for the data. Small values of the p-value indicate that there is evidence that the new therapy does help patients live longer. If not, the trial would conclude that there is a failure to show such a difference, which could be due to a number of reasons.  
+
+What are the important aspects of this type of analysis? Inferential techniques typically produce some type of probabilistic output, such as a p-value, confidence interval, or posterior probability. Generally, to compute such a quantity, formal probabilistic assumptions must be made about the data and the underlying processes that generated the data. The quality of the statistical results are highly dependent on these pre-defined assumptions as well as how much the observed data appear to agree with them. The most critical factors here are theoretical in nature: “If my data were independent and follow distribution X, then test statistic Y can be used to produce a p-value. Otherwise, the resulting p-value might be inaccurate.”
+
+One aspect of inferential analyses is that there tends to be a delayed feedback loop in understanding how well the data matches the assumptions. In our clinical trial example, if statistical (and clinical) significance indicate that the new therapy should be available for patients to use, it still may be years before it is used in the field and enough data are generated for an independent assessment of whether the original statistical analysis led to the appropriate decision.  
+
+## Predictive models  
+
+Sometimes data are modeled to produce the most accurate prediction possible for new data. Here, the primary goal is that the predicted values have the highest possible fidelity to the true value of the new data.
+
+A simple example would be for a book buyer to predict how many copies of a particular book should be shipped to their store for the next month. An over-prediction wastes space and money due to excess books. If the prediction is smaller than it should be, there is opportunity loss and less profit.
+
+For this type of model, the problem type is one of estimation rather than inference. For example, the buyer is usually not concerned with a question such as “Will I sell more than 100 copies of book X next month?” but rather “How many copies of X will customers purchase next month?” Also, depending on the context, there may not be any interest in why the predicted value is X. In other words, there is more interest in the value itself than evaluating a formal hypothesis related to the data. The prediction can also include measures of uncertainty. In the case of the book buyer, providing a forecasting error may be helpful in deciding how many to purchase. It can also serve as a metric to gauge how well the prediction method worked.  
+
+Broader discussions of these distinctions can be found in Breiman (2001b) and Shmueli (2010).
+
+>Aurthor's remark: Note that we have defined the type of a model by how it is used, rather than its mathematical qualities.  
+
+
+
+
+
+What are the most important factors affecting predictive models? There are many different ways that a predictive model can be created, so the important factors depend on how the model was developed.
+
+A mechanistic model could be derived using first principles to produce a model equation that is dependent on assumptions. For example, when predicting the amount of a drug that is in a person’s body at a certain time, some formal assumptions are made on how the drug is administered, absorbed, metabolized, and eliminated. Based on this, a set of differential equations can be used to derive a specific model equation. Data are used to estimate the unknown parameters of this equation so that predictions can be generated. Like inferential models, mechanistic predictive models greatly depend on the assumptions that define their model equations. However, unlike inferential models, it is easy to make data-driven statements about how well the model performs based on how well it predicts the existing data. Here the feedback loop for the modeling practitioner is much faster than it would be for a hypothesis test.
+
+Empirically driven models are created with more vague assumptions. These models tend to fall into the machine learning category. A good example is the K-nearest neighbor (KNN) model. Given a set of reference data, a new sample is predicted by using the values of the K most similar data in the reference set. For example, if a book buyer needs a prediction for a new book, historical data from existing books may be available. A 5-nearest neighbor model would estimate the amount of the new books to purchase based on the sales numbers of the five books that are most similar to the new one (for some definition of “similar”). This model is only defined by the structure of the prediction (the average of five similar books). No theoretical or probabilistic assumptions are made about the sales numbers or the variables that are used to define similarity. In fact, the primary method of evaluating the appropriateness of the model is to assess its accuracy using existing data. If the structure of this type of model was a good choice, the predictions would be close to the actual values.  
+
+
