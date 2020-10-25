@@ -1,0 +1,38 @@
+---
+title: "Tidymodels with R"
+output: html_notebook
+---
+
+# Chicago train data 
+
+## Load required packages.
+
+```{r}
+library( tidyverse)
+library( tidymodels )
+library( lubridate )
+```  
+
+## Get and process the data with piping
+
+
+
+```{r}
+url <- "http://bit.ly/raw-train-data-csv"
+
+all_stations <- 
+  readr::read_csv( url ) %>% 
+  select( station = stationname,
+          date,
+          rides ) %>% 
+  mutate( date = mdy(date), 
+          rides = rides / 1000 ) %>% 
+  group_by( date, station ) %>% 
+  summarize( rides = max(rides), 
+             .groups = "drop" ) %>% 
+  ungroup()
+    
+all_stations
+```
+
+
