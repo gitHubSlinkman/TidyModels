@@ -11,6 +11,8 @@ The Ames housing data set (De Cock 2011) is an excellent resource for learning a
 * ratings of condition and quality, and
 * sale price.  
 
+
+
 ```
 Our goal for these data is to predict the sale price of a house based on its other characteristics.
 ```  
@@ -46,8 +48,8 @@ ames %>%
                     color = "black",
                     fill  = "green" )
 ```
-I prefer to use a density histoegram and too draw a smoothed  density plot with the 
-histogram.  I also use the ggplot theme theme_bw().  In addition when dealing with dollar amounts greater that are in the thousands of dollars it is useful to vhnage the unit to thosuands of dollars ($k) rather than dollars($)
+I prefer to use a density histogram and too draw a smoothed  density plot with the 
+histogram.  I also use the ggplot theme theme_bw().  In addition when dealing with dollar amounts greater that are in the thousands of dollars it is useful to change the unit to thousands of dollars ($k) rather than dollars($)
 ```{r}
                                 
 ames %>% 
@@ -78,7 +80,7 @@ ggplot(ames, aes(x = Sale_Price)) +
   scale_x_log10()
 ```
 
-Again we will change this by working in units of thousandas of dollars.
+Again we will change this by working in units of thousands of dollars.
 
 ```{r}
 ames %>% 
@@ -108,11 +110,11 @@ fr     <- format( r, digits = 2 )
 ```
 
 
-Incidentally, there is the the law of ten, which says that if the ratio of the maximum values divided by the minimum value the logarithm transformation will be useful in obtaining a symmetric distribution. (I doi';t currently have the full reference for this butit is in Applied Regression Analysis by _________.)  
+Incidentally, there is the the law of ten, which says that if the ratio of the maximum values divided by the minimum value the logarithm transformation will be useful in obtaining a symmetric distribution. (I don't currently have the full reference for this but I know it is in the book **Applied Regression Analysis** by Sanford Weisberg.)  
 
 In the Ames data the maximum sales price is $755,000 and the minimum sale price is $12,789.  The ratio is 59.04 which is greater than 10 so it is worth while trying the log transformation.
 
-Therefore we are going to update the Ames data set set by replacing sale proce by the logarithm of the sale proce.  Since we are using United states dollares we will use logs to the base 10.  
+Therefore we are going to update the Ames data set set by replacing sale price by the logarithm of the sale price.  Since we are using United states dollars we will use logs to the base 10.  
 
 We do the transformation below.  We will save resulting data file in the data directory for our project as as RDS file which is more efficient.  Our R code is:
 
@@ -127,13 +129,18 @@ ames01 <-
     mutate( Sale_Price = log10( Sale_Price ))
 
 ##################################################################################
-# Verify the transformation was made by looking at the first 10 sale proces
+# Verify the transformation was made by looking at the first 10 sale prices
 ##################################################################################
 
 ames01$Sale_Price[1:10]
 
 ```
-The transformation was successful.
+We now save the data so we do not need to recreate it every time we do more analysis.  We save the data using R-RDS files which are very efficient to write and read.
+
+We also store our data files in a sub-directory.  If you keep your program or scripts in the same directory as your data it too easy to delete something by mistake.
+
+In the code chunk below we save the files:  
+
 
 ```{r}
 ################################################################################
@@ -153,4 +160,14 @@ saveRDS( ames01, fp  )                      # Save logged Sale Price file.
 dir( path = dd )                            # Verify files saved.
 
 ```
+
+Another important aspect of these data for our modeling are their geographic locations. This spatial information is contained in the data in two ways: a qualitative Neighborhood label as well as quantitative longitude and latitude data.
+
+The most important predictor variable of real estate price is location.  We have two different types of predictor variables that deal with location.  On is the house's neighborhood. This is a qualitative variables.  Typically, within the neighborhood there will be a price trends that reflect the age of houses and the desirability.  
+
+For example I live in Arlington Texas.  The neighborhood is adjacent to Lake Arlington.  The streets closer to lake Arlington tend to have higher prices than the streets that are more distant from the lake.  
+
+Dr. Slinkman's remark.  The book we are using has maps of the neighborhood is Ames Iowa.  As so as I get time I will add them to bu solution.  If you know how to draw statistical maps I would be most grateful if you would add them to this project.  
+
+
 
