@@ -1,0 +1,14 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## INTRODUCTION
+
+I am Craig Slinkman, a retired statistics and information systems professor from
+The department of Information Systems as the University of Texas at Arlington.
+
+This my RStudio implementation of the TidyModels.org tutorial found on the internet at
+TidyModels.org.
+
+## TIDYMODELS 

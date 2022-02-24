@@ -1,0 +1,83 @@
+---
+title: "Tdy Models"
+author: "Craig W. Slinkman"
+date: "2/24/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## INTRODUCTION
+
+I am Craig Slinkman, a retired statistics and information systems professor from
+The department of Information Systems as the University of Texas at Arlington.
+
+This my RStudio implementation of the Tidy Models tutorial found on the internet at tidymodels.org.  
+
+Note that this tutorial does not include the entire text of the tutorial.
+ 
+Note also that my R-code will vary from that of the tutorial because of my personal
+programming style although I try to stay within the tidyverse programming standards.
+
+
+## TIDYMODELS 
+
+The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.
+
+Install tidymodels with:
+
+```
+install.packages("tidyverse")
+```  
+
+## LEARN TIDYMODELS
+
+Whether you are just starting out today or have years of experience with modeling, tidymodels offers a consistent, flexible framework for your work.
+
+### GETTING STARTED
+
+
+What do you need to know to start using tidymodels? Learn what you need in 5 articles, starting with how to create a model and ending with a beginning-to-end modeling case study.
+
+This is my implementation of the tidyverse tutorials.
+
+## Learn
+
+After you know what you need to get started with tidymodels, you can learn more and go further. Find articles here to help you solve specific problems using the tidymodels framework. Articles are organized into four categories:
+
+* PERFORM STATISTICAL ANALYSIS
+* CREATE ROBUST MODELS
+* TUNE, COMPARE, AND WORK WITH YOUR MODELS
+* DEVELOP CUSTOM MODELING TOOLS  
+
+### PERFORM STATISTICAL ANALYSIS  
+
+#### CORRELATION AND REGRESSION FUNDAMENTALS WITH TIDY DATA PRINCIPLES 
+Analyze the results of correlation tests and simple regression models for many data sets at once.
+
+
+#### K-MEANS CLUSTERING WITH TIDY DATA PRINCIPLES
+  
+Summarize clustering characteristics and estimate the best number of clusters for a data set.
+Read article »
+  broom
+  
+#### BOOTSTRAP RESAMPLING AND TIDY REGRESSION MODELS
+Apply bootstrap resampling to estimate uncertainty in model parameters.
+Read article »
+  broom, rsample
+  
+#### HYPOTHESIS TESTING USING RESAMPLING AND TIDY DATA
+Perform common hypothesis tests for statistical inference using flexible functions.
+Read article »
+  infer
+#### STATISTICAL ANALYSIS OF CONTINGENCY TABLES
+Use tests of independence and goodness of fit to analyze tables of counts.
+Read article »
+  infer
+
+
+
+
